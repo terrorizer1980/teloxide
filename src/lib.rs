@@ -6,6 +6,7 @@
 
 pub use bot::Bot;
 pub use errors::{ApiErrorKind, DownloadError, RequestError};
+pub use session;
 
 mod errors;
 mod net;
@@ -16,3 +17,4 @@ pub mod prelude;
 pub mod requests;
 pub mod types;
 pub mod utils;
+pub mod session;

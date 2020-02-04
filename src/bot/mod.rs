@@ -1,45 +1,39 @@
-use reqwest::Client;
-
 mod api;
 mod download;
+mod token;
+
+use crate::dispatching::dispatcher::Dispatcher;
+use crate::bot::token::Token;
 
 /// A Telegram bot used to send requests.
-#[derive(Debug, Clone)]
 pub struct Bot {
-    token: String,
-    client: Client,
+    token: Token,
+    dispatcher: Option<Dispatcher>,
+    storage: Option<Stor>,
 }
 
 impl Bot {
-    pub fn new<S>(token: S) -> Self
+    pub fn new<S>(convertable_to_token: S) -> Self
     where
         S: Into<String>,
     {
-        Bot {
-            token: token.into(),
-            client: Client::new(),
-        }
-    }
-
-    pub fn with_client<S>(token: S, client: Client) -> Self
-    where
-        S: Into<String>,
-    {
-        Bot {
-            token: token.into(),
-            client,
+        Self {
+            token: Token::from(convertable_to_token),
+            dispatcher: None,
+            storage: None,
         }
     }
 }
 
 impl Bot {
-    // TODO: const fn
-    pub fn token(&self) -> &str {
+    pub fn token(&self) -> &Token {
         &self.token
     }
-
-    // TODO: const fn
-    pub fn client(&self) -> &Client {
-        &self.client
+    pub fn set_dispather(&mut self, dispatcher: Dispatcher) {
+        self.dispatcher = dispatcher
+    }
+    pub fn set_storage(&mut self, storage: Stor) {
+        self.storage = storage
     }
 }
+

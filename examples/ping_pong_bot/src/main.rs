@@ -6,10 +6,11 @@ async fn main() {
     pretty_env_logger::init();
     log::info!("Starting the ping-pong bot!");
 
-    Dispatcher::new(Bot::new("MyAwesomeToken"))
-        .message_handler(|ctx: HandlerCtx<Message>| async move {
+    let bot = Bot::new("MyAwesomeToken").set_dispather(Dispatcher::new([
+        Observer::new(MessageResive, |ctx| async move {
             ctx.reply("pong").await
         })
-        .dispatch()
-        .await;
+    ]));
+
+    Session::default().asociate_bot(bot).idle();
 }

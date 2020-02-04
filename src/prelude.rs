@@ -10,4 +10,5 @@ pub use crate::{
     requests::{Request, ResponseResult},
     types::Message,
     Bot, RequestError,
+    session::Session,
 };
