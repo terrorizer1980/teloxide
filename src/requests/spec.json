@@ -1,0 +1,98 @@
+{
+    "version": 4.6,
+    "methods": [
+        {
+            "name": "sendGame",
+            "category": "game"
+        },
+        {
+            "name": "setGameScore",
+            "category": "game"
+        },
+        {
+            "name": "getGameHighScores",
+            "category": "game"
+        }
+    ],
+    "objects": [
+        {
+            "name": "Update",
+            "category": "request",
+            "description": {
+                "update_id": "int",
+                "message": "Message",
+                "edited_message": "Message",
+                "channel_post": "Message",
+                "edited_channel_post": "Message",
+                "inline_query": "InlineQuery",
+                "chosen_inline_result": "ChosenInlineResult",
+                "callback_query": "CallbackQuery",
+                "shipping_query": "ShippingQuery",
+                "pre_checkout_query": "PreCheckoutQuery",
+                "poll": "Poll",
+                "poll_answer": "PollAnswer"
+            }
+        },
+        {
+            "name": "PassportData",
+            "category": "passport",
+            "description": {
+                "data": "TODO",
+                "credentials": "TODO"
+            }
+        },
+        {
+            "name": "PassportFile",
+            "category": "passport",
+            "description": {
+                "file_id": "str",
+                "file_unique_id": "str",
+                "file_size": "int",
+                "file_date": "int"
+            }
+        },
+        {
+            "name": "EncryptedPassportElement",
+            "category": "passport",
+            "description": {
+                "r#type": "TODO",
+                "data": "str",
+                "phone_number": "str",
+                "email": "str",
+                "files": "TODO",
+                "front_side": "TODO",
+                "reverse_side": "TODO",
+                "selfie": "TODO",
+                "translation": "TODO",
+                "hash": "TODO"
+            }
+        },
+        {
+            "name": "EncryptedCredentials",
+            "category": "passport"
+            
+        },
+        {
+            "name": "Game",
+            "category": "game",
+            "description": {
+                "title": "str",
+                "description": "str",
+                "photo": "TODO",
+                "text": "str",
+                "text_entities": "TODO",
+                "animation": "TODO"
+            }
+        },
+        {
+            "name": "GameHighScore",
+            "category": "game", 
+            "description": {
+                "user_id": "int",
+                "chat_id": "int",
+                "message_id": "int",
+                "inline_message_id": "str"
+            }
+        }
+    ]
+}
